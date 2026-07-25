@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{setupsci}[2026/04/15 Science Options]
+\ProvidesPackage{setupsci}[2026/07/25 Science Options]
 
 % -------- FIGURES ---------
 \RequirePackage{graphicx, tikz, pgf, float} % pictures, figures
@@ -13,16 +13,6 @@
     % decorations.text % text along path
 }
 % \RequirePackage{wrapfig}
-% \RequirePackage{duckuments} % for example-image-duck-portrait
-
-% \RequirePackage{forest} % diagram \begin{forest}[title [content][figure]]\end{forest}
-% \RequirePackage{dirtree} % write file directory \dirtree{.1 title. .2 content.}
-
-% Image border
-% \fboxsep=10mm % padding thickness
-% \fboxrule=4pt % border thickness
-%% \fcolorbox{red}{yellow}{\includegraphics{example-image}} % frame with color
-%% \frame{\includegraphics{example-image}}                  % picture outline
 
 
 % -------- PLOTS --------
@@ -51,32 +41,9 @@
 \RequirePackage{amsmath, amssymb, amsthm} % mathematics
 % Check out math fonts in setuptext.sty/FONTS
 
-% \RequirePackage{freemath} % math without backslash \freemathon \freemathoff
-
-% \everymath={\displaystyle} % force display style
-% \openup3\jot               % increase line spacing (\jot=3pt)
-% \obeylines                 % respect line breaks (use in group)
-
-% \setlength\mathindent{1cm} % use with fleqn option in amsmath
-
-% \RequirePackage[basic]{mathastext} % Replaces math italics with standard glyphs
-
-% \RequirePackage{bm} % access bold math symbols (clash with math otf pkgs)
-
-\DeclareMathSymbol{*}{\mathbin}{symbols}{"01} % maps asterisk to \cdot
-
 \RequirePackage{esint} % extra integrals
 
 % \RequirePackage{upgreek} upright Greek \upalpha \upbeta
-
-% \DeclareSymbolFont{rmlargesymbols}{OMX}{mdbch}{m}{n} % load math symbols
-% \DeclareMathSymbol{\rmintop}{\mathop}{rmlargesymbols}{82} % upright integral
-% \DeclareMathSymbol{\rmointop}{\mathop}{rmlargesymbols}{72} % ring integral
-% \newcommand{\rmint}{\rmintop\nolimits}
-% \newcommand{\rmiint}{\rmintop\mkern-9mu\rmintop\nolimits}
-% \newcommand{\rmiiint}{\rmintop\mkern-9mu\rmintop\mkern-9mu\rmintop\nolimits}
-% \newcommand{\rmiiiint}{\rmintop\mkern-9mu\rmintop\mkern-9mu\rmintop\mkern-9mu\rmintop\nolimits}
-% \newcommand{\rmoint}{\rmointop\nolimits}
 
 \RequirePackage{mathtools} % extension to amsmath
 %% Use \parens*[<size>]{<expr>} starred for auto scale
@@ -88,26 +55,6 @@
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor} % floor fn
 \DeclarePairedDelimiter\round{\lfloor}{\rceil}  % round fn
 %% The \abs (absolute) and \norm (vector) are in physics package (no need *)
-
-
-% -------- CHEMISTRY ---------
-% \RequirePackage[version=4]{mhchem} % chemistry equation
-% \RequirePackage{chemfig, chemmacros} % chemistry structure
-% \setchemfig{
-%     atom sep=1.75em, % bond distance
-%     bond style={line width=1.05pt}, % line
-%     bond join=true,        % fix corner issue
-%     double bond sep=3.2pt, % spread bond
-%     bond offset=1.65pt,    % gap bond and label
-%     cram width=4.6pt,      % triangle bonds
-%     cram dash width=1pt, cram dash sep=2.8pt,
-%     arrow offset=1em, % scheme \ce{->[H+]} \+
-%     + sep left=1em, + sep right=1em,
-% }
-% \renewcommand*\printatom[1]{\arialfont\fontsize{14}{14}\selectfont #1} % atom label
-% \setcharge{extra sep=0.28em} % Lewis charge
-
-%% <bond>[<angle spec>,<length factor>,<atom 1>,<atom 2>,<style>] % \charge{<ang 1>=\.,<ang 2>=\:}{<atom>}
 
 
 % -------- PHYSICS ---------
@@ -144,322 +91,10 @@
 
 \RequirePackage{cancel} % bcancel xcancel cancelto
 
-
-% -------- PROGRAMMING CODE --------
-% \RequirePackage{verbatim, verbatimbox, fancyvrb} % insert code \Verb|...|
-
-% \RequirePackage[frozencache=false]{minted} % color code with python (see pygments.org/demo)
-% \usemintedstyle{borland}
-% \setminted{frame=topline,framesep=3mm}
-
-\RequirePackage{listings} % code blocks
-
-\definecolor{codegreen}{rgb}{0,0.56,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codeblue}{rgb}{0.15,0.1,0.65}
-\definecolor{codecomment}{rgb}{0.7,0.7,0.7}
-\definecolor{codepurple}{rgb}{0.55,0.14,0.45}
-\definecolor{backcolour}{rgb}{0.98,0.98,0.98}
-
-\colorlet{codeorange}{orange!86!black} % num color for python
-\colorlet{codecyan}{cyan!90!black} % num color for java
-
-% \def\pyfunction{\color{codeblue}\bfseries} % def function style use inside escape character
-
-% \makeatletter % add to literate
-\def\addToLiterate#1{\edef\lst@literate{\unexpanded\expandafter{\lst@literate}\unexpanded{#1}}}
-\lst@Key{add to literate}{}{\addToLiterate{#1}}
-% \makeatother
-
-
-% -------- Default style --------
-\lstset{
-    % language={[LaTeX]TeX},
-    % numbers=left,
-    % numbersep=1em,
-    % numberstyle=\tiny,
-    frame=none,
-    % framesep=4.5pt,
-    framerule=\fboxrule,
-    framexleftmargin=0.0em,
-    rulecolor=\color{black!70},
-    xleftmargin=0.048\linewidth,
-    xrightmargin=0.048\linewidth,
-    % xleftmargin=\dimexpr\fboxsep+\fboxrule\relax,
-    % xrightmargin=\dimexpr\fboxsep+\fboxrule\relax,
-    breaklines=true, % sets automatic line breaking
-    basicstyle=\linespread{0.95}\small\ttfamily,
-    keywordstyle=\ttfamily, % highlight syntax
-    commentstyle=\itshape,
-    % backgroundcolor=\color{yellow!10},
-    tabsize=2,
-    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
-    columns=flexible,
-    keepspaces=true, % keeps spaces in text
-    showstringspaces=false, % underline spaces within strings only
-    % aboveskip=15pt, % space before box
-    % belowskip=15pt, % space after box
-    captionpos=b, % sets the caption-position to bottom
-    abovecaptionskip=6pt, % space before caption
-    belowcaptionskip=7pt,
-    % morekeywords={maketitle},
-}
-
-
-% % -------- LaTeX style --------
-% \lstdefinestyle{TeXstyle}{
-%     language={[LaTeX]TeX},
-%     % frame=single,
-%     % framesep=4.5pt,
-%     % xleftmargin=0.01\linewidth,
-%     % xrightmargin=0.01\linewidth,
-%     tabsize=2,
-%     numberstyle=\footnotesize\ttfamily,
-%     postbreak=\phantom{aaa},
-%     literate=
-%         {begin\{}{\ProcessBegin{begin}}6{end\{}{\ProcessBegin{end}}4
-%         {/\\}% use /\ instead of \\ (by ctrl + f, replace)
-%         {\ProcessDigitTwo[magenta]{\textbackslash\textbackslash}\color{black}}1
-%         {\\}{\ProcessDigitTwo{\textbackslash}}1 % backslash
-%         {\{}{\ProcessDigitTwo[black!75]{\{}\color{black}}1{\}}{\ProcessDigitTwo[black!75]{\}}\color{black}}1
-%         {[}{\ProcessDigitTwo[teal]{[}\color{black}}1{]}{\ProcessDigitTwo[teal]{]}\color{black}}1
-% %       {(}{\ProcessDigitTwo[black]{(}\color{black}}1{)}{\ProcessDigitTwo[black]{)}\color{black}}1
-%         {@}{\ProcessNum{@}}1{\&}{\ProcessDigitTwo[magenta]{\&}}1
-%         {=}{\ProcessNum{=}}1{.}{\ProcessNum{.}\color{black}}1{,}{\ProcessNum{,}\color{black}}1
-%         {0}{\ProcessNum{0}\color{black}}1{1}{\ProcessNum{1}\color{black}}1
-%         {2}{\ProcessNum{2}\color{black}}1{3}{\ProcessNum{3}\color{black}}1
-%         {4}{\ProcessNum{4}\color{black}}1{5}{\ProcessNum{5}\color{black}}1
-%         {6}{\ProcessNum{6}\color{black}}1{7}{\ProcessNum{7}\color{black}}1
-%         {8}{\ProcessNum{8}\color{black}}1{9}{\ProcessNum{9}\color{black}}1
-%         {\ }{\color{black}\phantom{+}}1, % fix space
-%     moredelim=[s][\color{green!70!black}]{\$}{\$}, % math mode
-%     moredelim=[s][\color{green!70!black}]{\$\$}{\$\$}, % math display
-%     moredelim=[s][\color{green!70!black}]{align*}{align*}, % math align
-%     % these is no way to make multiline comment delimiter unfortunately 
-%     commentstyle=\itshape\color{gray}, % after percent sign
-%     escapeinside={(*}{*)}, % escape (*text*)
-% }
-
-
-
-% % -------- Python style --------
-% % Use Consolas font in Fonts folder
-% % \RequirePackage{fontspec}
-% % \RequirePackage{polyglossia}
-% % \newfontfamily{\codefont}{Consolas}
-% % use default settings from thaitext.sty
-% \lstdefinestyle{Pythonstyle}{
-%     language=Python, % programming language
-%     frame=single,
-%     tabsize = 4,
-%     basewidth = 0.55em, % help align white spaces
-%     backgroundcolor=\color{backcolour}, % background color
-%     basicstyle=\small\codefont\color{black}, % the size of the fonts used for the code
-%     commentstyle=\color{codecomment}, % comment style
-%     keywordstyle=\color{codepurple}\bfseries, % keyword style
-%     morekeywords={None},
-%     keywordstyle=[2]{\color{codepurple}}, % built in fn
-%     keywords=[3]{{\_\_init\_\_, \_\_int\_\_, \_\_str\_\_, \_\_lt\_\_, \_\_len\_\_, \_\_add\_\_, \_\_eq\_\_}}, % def method
-%     keywordstyle=[3]\color{codeblue}\bfseries,
-%     numberstyle=\scriptsize\codefont\color{gray}, % the style used for the line-numbers
-%     stringstyle=\color{codegreen}, % string literal style
-%     % alsoletter={0123456789},
-%     literate={*}{\raisebox{0ex}{*}}1
-%         {0}{\ProcessDigit{0}}1{1}{\ProcessDigit{1}}1
-%         {2}{\ProcessDigit{2}}1{3}{\ProcessDigit{3}}1
-%         {4}{\ProcessDigit{4}}1{5}{\ProcessDigit{5}}1
-%         {6}{\ProcessDigit{6}}1{7}{\ProcessDigit{7}}1
-%         {8}{\ProcessDigit{8}}1{9}{\ProcessDigit{9}}1
-%         {.0}{\ProcessDigit{.0}}2{.1}{\ProcessDigit{.1}}2
-%         {.2}{\ProcessDigit{.2}}2{.3}{\ProcessDigit{.3}}2
-%         {.4}{\ProcessDigit{.4}}2{.5}{\ProcessDigit{.5}}2
-%         {.6}{\ProcessDigit{.6}}2{.7}{\ProcessDigit{.7}}2
-%         {.8}{\ProcessDigit{.8}}2{.9}{\ProcessDigit{.9}}2
-%         {def}{\ProcessPyFn{def}}3
-%         {(}{\ProcessDigit[black]{(}\color{black}}1,
-%         morestring=[b]",
-%         morestring=[b]',
-%         % morecomment=[l]//,
-%     breakatwhitespace=false, % sets if automatic breaks should only happen at whitespace
-%     numbers=left, % where to put the line-numbers
-%     numbersep=10pt, % how far the line-numbers are from the code
-%     showspaces=false, % show spaces everywhere adding particular underscores
-%     showtabs=false, % show tabs within strings adding particular underscores
-%     tabsize=2, % sets default tabsize to 2 spaces
-%     mathescape=true, % allow $math mode$
-%     % escapechar=|, % allow escape |text|
-%     escapeinside={(*}{*)}, % escape (*text*)
-%     morekeywords=[2]{self},
-% }
-
-% % Python for inline
-% \lstdefinestyle{Pythoninline}{
-%     style=Pythonstyle,
-%     basicstyle=\codefont
-% }
-
-
-% % -------- Java style --------
-% \lstdefinestyle{Javastyle}{
-%     language=Java,
-%     % frame = trBL, % stack box
-%     tabsize = 4,
-%     % basewidth = 0.55em, % help align white spaces
-%     numbers = left,
-%     commentstyle = \color{codecomment},
-%     keywordstyle = \color{orange!82!black},
-%     morekeywords=[2]{main}, % def method
-%     keywordstyle=[2]\color{codeblue},
-%     % morekeywords=[3]{MAX}, % variable
-%     keywordstyle=[3]\color{codepurple},
-%     morekeywords=[4]{@Override}, % for @
-%     keywordstyle=[4]\color{olive},
-%     stringstyle = \color{codegreen},
-%     backgroundcolor=\color{backcolour},
-%     rulecolor = \color{black},
-%     basicstyle = \small\codefont\color{black}, % main \small\codefont\color{black}
-%     breaklines = true,
-%     numberstyle = \scriptsize\codefont\color{gray}, % \scriptsize\codefont\color{gray}
-%     numbersep = 10pt,
-%     literate=
-%         {0}{\ProcessDigit[codecyan]{0}}1{1}{\ProcessDigit[codecyan]{1}}1
-%         {2}{\ProcessDigit[codecyan]{2}}1{3}{\ProcessDigit[codecyan]{3}}1
-%         {4}{\ProcessDigit[codecyan]{4}}1{5}{\ProcessDigit[codecyan]{5}}1
-%         {6}{\ProcessDigit[codecyan]{6}}1{7}{\ProcessDigit[codecyan]{7}}1
-%         {8}{\ProcessDigit[codecyan]{8}}1{9}{\ProcessDigit[codecyan]{9}}1
-%         {.0}{\ProcessDigit[codecyan]{.0}}2{.1}{\ProcessDigit[codecyan]{.1}}2
-%         {.2}{\ProcessDigit[codecyan]{.2}}2{.3}{\ProcessDigit[codecyan]{.3}}2
-%         {.4}{\ProcessDigit[codecyan]{.4}}2{.5}{\ProcessDigit[codecyan]{.5}}2
-%         {.6}{\ProcessDigit[codecyan]{.6}}2{.7}{\ProcessDigit[codecyan]{.7}}2
-%         {.8}{\ProcessDigit[codecyan]{.8}}2{.9}{\ProcessDigit[codecyan]{.9}}2
-%         {.in}{.\itshape\textcolor{codepurple}{in}}3{.out}{.\itshape\textcolor{codepurple}{out}}4
-%         {\\t}{\textcolor{codeorange}{\textbackslash t}}2{\\n}{\textcolor{codeorange}{\textbackslash n}}2
-%         {\ }{\phantom{+}}1,
-%         morestring=[b]",
-%         morestring=[b]',
-%         morecomment=[l]//,
-%     mathescape=true,
-%     escapeinside={(*}{*)}, % escape (*text*)
-% }
-
-% % Java with file heading (use title=\codecaption{<caption>})
-% \lstdefinestyle{Javastylee}{
-%   style=Javastyle,
-%   captionpos=t,
-%   title=\codecaption{Code},
-%   abovecaptionskip=3pt,
-%   belowcaptionskip=3pt
-% }
-
-% % % Java for inline
-% \lstdefinestyle{Javainline}{
-%   style=Javastyle,
-%   basicstyle=\codefont\normalsize,
-% }
-
-
-% -------- Output style for Java & Python --------
-% \lstdefinestyle{Output}{
-%   frame=single,
-%   tabsize = 4,
-%   basewidth = 0.55em,
-%   numbers=none,
-%   backgroundcolor=\color{backcolour},
-%   rulecolor = \color{black},
-%   basicstyle = \codefont\small,
-%   breaklines = true,
-%   commentstyle = \color{codecomment},
-%   morecomment=[l]//,
-%   captionpos=t,
-%   abovecaptionskip=-4pt,
-%   belowcaptionskip=3pt,
-%   title=\codecaption[cyan]{Output}, % default caption
-%   mathescape=true,
-%   escapeinside={(*}{*)}, % escape (*text*)
-% }
-
-
-% -------- Terminal style --------
-% \lstdefinestyle{Terminal}{
-% xleftmargin=0pt,
-% xrightmargin=0pt,
-% frame=single,
-% rulecolor = \color{black},
-% escapechar=!,
-% escapeinside={(*}{*)},
-% backgroundcolor=\color{black},
-% basicstyle=\small\ttfamily\color{black!30},
-% literate={cd}{\textcolor{yellow}{cd}}2
-% {>\ java}{> \textcolor{yellow}{javac}}6
-% {>\ javac}{> \textcolor{yellow}{java}}7
-% {>\ git}{> \textcolor{yellow}{git}}5
-% {>\ latex}{> \textcolor{yellow}{latex}}7
-% {>\ xelatex}{> \textcolor{yellow}{xelatex}}9,
-% morestring=[b]",
-% morestring=[b]',
-% morecomment=[l]//,
-% breakindent=12.2pt,
-% postbreak={},
-% }
-
-% -------- CODE COMMAND --------
-\newcommand{\codecaption}[2][orange]{ % display caption with Javastylee
-    \makebox[0.924\textwidth][l]{\colorbox{#1!40}{\ \small #2\ \vphantom{p}}}
-}
-
-% % \makeatletter % number highlighting python / java
-% \newcommand{\ProcessDigit}[2][codeorange]
-% {%
-%   \ifnum\lst@mode=\lst@Pmode\relax%
-%    {\color{#1} #2}%
-%   \else
-%     #2%
-%   \fi
-% }
-% % \makeatother
-
-% % \makeatletter % hightlight python fn
-% \newcommand{\ProcessPyFn}[2][codepurple]
-% {%
-%   \ifnum\lst@mode=\lst@Pmode\relax%
-%    {\textcolor{#1}{\bfseries #2}}\color{codeblue}%
-%   \else
-%     \textcolor{.}{#2}%
-%   \fi
-% }
-% % \makeatother
-
-% % \makeatletter % number highlighting for TeX
-% \newcommand{\ProcessDigitTwo}[2][blue] % for colored stopper
-% {%
-%   \ifnum\lst@mode=\lst@Pmode\relax%
-%    \color{#1} #2%
-%   \else
-%    \color{.!85!black} #2%
-%   \fi
-% }
-% \newcommand{\ProcessNum}[1] % for no color stopper
-% {%
-%   \ifnum\lst@mode=\lst@Pmode\relax%
-%    \color{black} #1%
-%   \else
-%    \color{.} #1%
-%   \fi
-% }
-% \newcommand{\ProcessBegin}[1] % enviroment name
-% {%
-%   \ifnum\lst@mode=\lst@Pmode\relax%
-%    \textcolor{blue}{#1}\textcolor{black!75}{\{}\color{orange!90!black}%
-%   \else
-%    \textcolor{.!80!black}{#1\{}\color{black}%
-%   \fi
-% }
-% % \makeatother
-
 \endinput
 
-setupsci.sty, version 1.1
+setupsci.sty, version 1.2
 
-This package provides options for science, technology, engineering, and mathematics.
+This package provides options for science and mathematics.
 
 See https://github.com/goldhand-c

@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{setuptext}[2026/04/15 Text Options]
+\ProvidesPackage{setuptext}[2026/07/25 Text Options]
 
 % -------- SPACING --------
 \raggedbottom % no vertical justification
@@ -10,9 +10,6 @@
 \RequirePackage[normalem]{ulem} % uline uuline uwave sout xout dashuline dotuline
 \useunder{\uline}{\ulined}{}    % ulined switch command
 \RequirePackage{xhfill} % line fill \xrfill[raise]{width}[color]
-
-% \RequirePackage{censor} % censor censorbox blackout
-% \StopCensoring % turn off censor
 
 \RequirePackage{setspace} % begin spacing 1.5
 % \setstretch{1.618}         % line spacing
@@ -57,80 +54,17 @@
     \protected@xdef\titlename{#1}
     \endgroup
 }
-% \RequirePackage{titlesec} % modify title section
-% \titlelabel{\thetitle.\quad}
-% \titleformat*{\section}{\large\bfseries\sffamily}
 
 \RequirePackage{pdfpages} % \includepdf[pages=-]{All.pdf}
 
-% \RequirePackage{tramlines} % inter alia lines
-% \RequirePackage{framed} % box around things with separated page
-% \RequirePackage{tcolorbox} % colored box for examples and theorems
-% \RequirePackage{shadowbox} % shadowbox, doublebox, ovalbox, Ovalbox and lines
-
 
 % -------- MATH FONTS --------
-% \RequirePackage{times}     % set text font to Times New Roman
-% \RequirePackage{newtxmath} % set math font to Times New Roman
-% \let\openbox\relax
-% \let\Bbbk\relax
-
-% Remove warning messages with OTF math packages
-% \RequirePackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
-% \setmathfont{Cambria Math} % use local math font
-% \setoperatorfont{\symrm} % fix operator font to use math
-
-% \let\temp\rmdefault % save default roman font
-
-% \RequirePackage{euler}           % set math font to AMS-Euler
-% \RequirePackage{libertinus-otf}  % set all fonts to Libertinus
-% \RequirePackage{concmath-otf}    % set all fonts to Concrete
-% \RequirePackage{pennstander-otf} % set all fonts to Pennstander
-% \RequirePackage{sansmathfonts}   % set math font to sans serif
-% \RequirePackage{jetbrainsmono-otf} % loads fonts \jetbrainsmono(weight)
-
-% \let\rmdefault\temp % save default roman font
-
-% \let\eth\relax                  % \
-% \let\digamma\relax              % use these lines to avoid crash
-% \let\backepsilon\relax          % when using with amssymb
-% \let\smallsetminus\relax        % /
-
 % MLModern
 \RequirePackage[T1]{fontenc} % use T1 fonts
 \RequirePackage{mlmodern}    % set math fonts to thick Modern (all fonts only in pdfLaTeX, don't use unicode-math)
 \AtBeginDocument{
     \RequirePackage{mathspec} % help math symbol fonts mlmodern (must load after physics)
 }
-
-
-% -------- EMOJI --------
-% \RequirePackage{wasysym} % for emoji \smiley
-%% http://xyoshiki.web.fc2.com/tex/wasysym.html
-
-\RequirePackage{pifont} % Japanese emoji with item
-%% \ding{37} \ding{38} \dingline{40}
-%% \begin{dinglist}{48} \begin{dingautolist}{192}
-%% http://xyoshiki.web.fc2.com/tex/zapfdingbats.html
-
-\RequirePackage{marvosym} % German emoji and symbols
-
-\RequirePackage[names=false,preload-names=false]{bxcoloremoji} % colored emoji
-%% \coloremoji{❤️} ~capof{1} ~fill{} ~line{}
-%% \begin{~list}{✏️} \begin{~autolist}{♠️}
-%% \pagenumbering{coloremojikeycap} 0-10 page number
-
-
-% -------- COLOR --------
-% \definecolor{textcolor1}{HTML}{1A3263} % dark blue
-% \definecolor{textcolor2}{HTML}{0046FF} % bright blue
-% \definecolor{textcolor3}{HTML}{5D688A} % violet gray
-% \color{blue!10!black}
-
-% \definecolor{pagecolor1}{HTML}{fdf6e3} % paper
-% \definecolor{pagecolor2}{HTML}{c8e1cc} % light green
-% \definecolor{pagecolor3}{HTML}{FFC48C} % Rath orange
-% \pagecolor{pagecolor3}
 
 
 % -------- REFERENCE --------
@@ -146,10 +80,6 @@
 
 % \RequirePackage{cleverref} % ref section, figure
 \RequirePackage{lastpage} % ref \pageref*{LastPage}
-
-\RequirePackage{sidenotes} % add sidenote
-% \RequirePackage{marginnote} % use instead of marginpar
-\reversemarginpar % forces sidenotes to the left side
 
 
 % -------- LIST --------
@@ -187,16 +117,6 @@
     topsep=0pt
 }
 
-% Thai number list
-% \AddEnumerateCounter{\thainum}{\thainum}{๑๒}
-% \AddEnumerateCounter{\thalph}{\thalph}{ก}
-% \newlist{thaienum}{enumerate}{3}
-% \newlist{thaienumalph}{enumerate}{2}
-
-% \setlist[thaienum,1]{label=\thainum*\!\!.,itemsep=-2pt,align=left,leftmargin=*,itemindent=0pt,widest=๑๐.,topsep=-10pt}
-% \setlist[thaienum,2]{label=\thethaienumi\thainum*\!\!,itemsep=-2pt,align=left,leftmargin=*,itemindent=!,labelindent=*,labelwidth=*,widest=๑๐.๑,topsep=-4pt}
-% \setlist[thaienumalph,1]{label=\thalph*.,itemsep=-2pt,align=left,leftmargin=*,itemindent=!,labelwidth=1em,topsep=-10pt}
-
 \RequirePackage{tasks} % vertically-aligned horizontal list
 \settasks{
     label=\arabic*),
@@ -210,94 +130,21 @@
 \RequirePackage[export]{adjustbox} % \begin{adjustbox}{width=\columnwidth,center} for scaling tabular
 %% export allows valign=c option in \includegraphics inside tabular
 
-% \RequirePackage{tabularx} % evenly spaced column X
-% \RequirePackage{tabularray} % tlbr environment with colspec width hlines row{1-Z}
-
-% \RequirePackage{longtable} % multipage table
-% \RequirePackage{subcaption} % display subcaption in caption
-
 \RequirePackage{array} % define column type C,L,R{<len>}
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
 \newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
 \newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
 \newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
 
-% \setlength{\arrayrulewidth}{1mm}
-% \setlength{\tabcolsep}{10pt} % vertical spacing of table
-
-%% Helper commands
-% \newcommand\Tstrut{\rule{0pt}{2.6ex}}         % = `top' strut
-% \newcommand\Bstrut{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut
-
-% \def\Q{\vphantom{\parbox[c]{0.5em}{M M}}} % for normal font row
-% \def\Z{\vphantom{\parbox[c]{0.5em}{M M M}}} % for fraction row
-% \def\ZZ{\vphantom{\parbox[c]{0.5em}{M M M M}}} % for big fraction row
 \newcommand{\rowsep}[1]{\vphantom{\parbox[c]{0.5em}{{}\vspace{#1}{}}}} % \rowsep{2.1em}
 
 \newcommand{\itemcolor}[1]{ % switch label color
     \renewcommand{\makelabel}[1]{\color{#1}\hfil ##1}
 }
 
-
-% -------- BACKGROUND --------
-\RequirePackage{background}
-
-\backgroundsetup{contents={\textsf{Draft}}} % draft watermark (empty to disable)
-
-% % Setup the background lines
-% \backgroundsetup{
-%   scale=1,
-%   color=blue!20, % Light blue lines
-%   angle=0,
-%   opacity=1,
-%   contents={
-%     \begin{tikzpicture}[remember picture, overlay]
-%       \foreach \i in {0,1,...,37} {
-%         \draw (20mm-0.5\paperwidth,0.4\paperheight-34.7pt) ++(0,-\i*18.1pt) -- ++(170mm,0);
-%       }
-%     \end{tikzpicture}
-%   }
-% }
-
-% % --- STYLE 1: The Notebook (Lined) ---
-% \newlength{\notebooklineskip}
-% \setlength{\notebooklineskip}{\baselineskip}
-% \newcommand{\enableNotebook}{
-%   \backgroundsetup{ % 31 lines
-%     scale=1, angle=0, opacity=1,
-%     contents={
-%         \begin{tikzpicture}[remember picture, overlay]
-%           \foreach \i in {-18,...,19} {
-%               \draw[blue!20] (current page.north west) ++(-8cm,-\i*\notebooklineskip - 2.77cm) -- ++(\paperwidth,0);
-%             }
-%           \draw[blue!35]   (current page.north west) ++(-8cm,-20*\notebooklineskip - 2.77cm) -- ++(\paperwidth,0);
-%           \draw[red!30, thick] (current page.north west) ++(-5.21cm,12.5cm) -- ++(0,-30cm);
-%         \end{tikzpicture}
-%       }
-%   }
-% }
-
-% % --- STYLE 2: The Grid (Math/Graph) ---
-% \newcommand{\enableGrid}{
-% \backgroundsetup{
-%   scale=1, angle=0, opacity=0.5,
-%   contents={
-%     \begin{tikzpicture}[remember picture, overlay]
-%       \draw[step=0.5cm, gray!20, thin,yshift=-0.12cm] (current page.north west) ++(-8cm,-17.5cm) grid ++(21cm,30cm);
-%     \end{tikzpicture}
-%   }
-% }
-% }
-
-% % --- STYLE 3: Blank ---
-\newcommand{\disableBackground}{
-    \backgroundsetup{contents={}}
-}
-\disableBackground
-
 \endinput
 
-setuptext.sty, version 1.1
+setuptext.sty, version 1.2
 
 This package provides options for configuring text.
 

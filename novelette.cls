@@ -14,7 +14,7 @@
 \RequirePackage[ % use \newgeometry{top=7mm,bottom=6mm,...,includehead,includefoot} to keep vertical margin
     a4paper,   % paper size
     top=7mm,   bottom=30mm,  % margin
-    left=28mm, right=19mm,
+    left=23mm, right=23mm,
     includehead, includefoot, % space header
     % inner=2cm, % outer=5cm, % twoside margin
     marginparwidth=24mm, % sidenote
