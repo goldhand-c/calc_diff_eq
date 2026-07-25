@@ -1,0 +1,206 @@
+%% !TEX program = xelatex
+\documentclass[12pt,final]{novelette} % font size, twoside, twocolumn, draft-final, use extarticle for 8-20pt
+
+\title{Diff Eq Final 2544}
+\author{Kaka Cring}
+\date{\today}
+
+\newcommand{\qmarki}[1]{\mbox{(#1 คะแนน)}}
+\newcommand{\qmark}[1]{{%
+      \unskip\nobreak\hfil\penalty50
+      \hskip2em\hbox{}\nobreak\hfil\qmarki{#1}%
+      \parfillskip=0pt \finalhyphendemerits=0 \par}}
+
+\begin{document}
+
+\thispagestyle{empty}
+\vspace*{-6em}
+
+\noindent
+\fbox{
+    \parbox[c][1.6em]{449pt}{\centering\bfseries
+        ตัวอย่างข้อสอบ 2301312 สมการเชิงอนุพันธ์ ปรับปรุงจากข้อสอบไล่ภาคปลาย ปีการศึกษา 2544
+    }
+}
+
+\subsubsection*{PART A}
+
+\begin{question}
+    \item {}
+    จงหาผลเฉลยในรูปอนุกรมกำลังรอบจุด $x=0$ ของสมการ $2x^2y'' + x(2x+1)y' - y = 0$ โดยวิธีของโฟรเบนิอุส \qmark{12}
+
+    % ----------------------------------------
+
+    % ----------------------------------------
+
+    \item {}
+    จงหาค่าของ
+    \begin{question}
+        \item
+        $\displaystyle \int_0^\infty e^{-x^4} \dd{x} \quad \text{(ให้ $t = x^4$)}$ \qmark{3}
+
+        % ----------------------------------------
+
+        % ----------------------------------------
+
+        \item
+        $\displaystyle \int_{2\pi}^\infty e^{-4t} \sin 2t \cos 2t \dd{t}$ \qmark{4}
+
+        % ----------------------------------------
+
+        % ----------------------------------------
+
+    \end{question}
+
+    \item {}
+    จงเขียนสมการเชิงอนุพันธ์ที่มี $P_4(x)$ เป็นผลเฉลย พร้อมทั้งหา $P_4(x)$ \qmark{3}
+
+    % ----------------------------------------
+
+    % ----------------------------------------
+
+    \item {}
+    จงหาผลเฉลยของสมการ $\displaystyle xy'' + y' - \left(\frac1x - \frac x4\right)y = 0$ \qmark{8}
+
+    % ----------------------------------------
+
+    % ----------------------------------------
+
+\end{question}
+
+\subsubsection*{PART B}
+
+\begin{question}[resume]
+    \item {}
+    จงเติมเฉพาะคำตอบลงในช่องว่างที่กำหนดให้โดยไม่ต้องแสดงวิธีทำ \qmark{5}
+    \begin{multicols}{2}
+        \begin{question}
+            \everymath={\displaystyle}
+            \item
+            $\mathcal{L}\left\{\frac12\right\} = \dotfill$
+
+            \item
+            $\mathcal{L}\left\{\sin 2t\right\} = \dotfill$
+
+            \item
+            $\mathcal{L}\left\{\cos 3t\right\} = \dotfill$
+
+            \item
+            $\mathcal{L}\left\{e^{-4t}\right\} = \dotfill$
+
+            \item
+            $\mathcal{L}\left\{t^2\right\} = \dotfill$
+
+            \item
+            $\mathcal{L}^{-1}\left\{\frac3s\right\} = \dotfill$
+
+            \item
+            $\mathcal{L}^{-1}\left\{\frac{s}{s^2+9}\right\} = \dotfill$
+
+            \item
+            $\mathcal{L}^{-1}\left\{\frac{1}{s-5}\right\} = \dotfill$
+
+            \item
+            $\mathcal{L}^{-1}\left\{\frac{1}{s^3}\right\} = \dotfill$
+
+            \item
+            $\mathcal{L}^{-1}\left\{\frac{1}{s^2+5}\right\} = \dotfill$
+        \end{question}
+    \end{multicols}
+
+    \item {}
+    จงทำให้เป็นผลสำเร็จ \qmark{10}
+    \begin{multicols}{2}
+        \begin{question}
+            \everymath={\displaystyle}
+            \item
+            $\int_0^\infty e^{(4-s)t} \dd{t} = \ ?$
+
+            \item
+            $\int_0^\infty e^{-st} (t^2 - 2) \dd{t} = \ ?$
+
+            \item
+            $\mathcal{L}\left\{4t^{3/2}\right\} = \ ?$
+
+            \item
+            $\mathcal{L}\left\{e^t \cos 2t\right\} = \ ?$
+
+            \item
+            $\mathcal{L}\left\{t \sin 3t\right\} = \ ?$
+        \end{question}
+    \end{multicols}
+
+    \item {}
+    จงใช้ทฤษฎีบทสังวัตนาการหา $\displaystyle \mathcal{L}^{-1}\left\{\frac{s^2}{(s^2+1)^2}\right\}$ \qmark{5}
+
+    % ----------------------------------------
+
+    % ----------------------------------------
+
+    \item {}
+    จงใช้การแปลงลาปลาซหาผลเฉลยของสมการ $\displaystyle \dv{y}{t} + 2y + 2 \int_0^t y(t-x) \dd{x} = 2t; \quad y(0) = 0$ \qmark{7}
+
+    % ----------------------------------------
+
+    % ----------------------------------------
+\end{question}
+
+\subsubsection*{PART C}
+
+\begin{question}[resume]
+    \item {}
+    จงทำให้เป็นผลสำเร็จ \qmark{18}
+    \begin{multicols}{2}
+        \begin{question}
+            \everymath={\displaystyle}
+            \item
+            $\mathcal{L}\left\{\int_0^t e^x \cos 2x \dd{x}\right\} = \ ?$
+
+            \item
+            $\mathcal{L}\left\{\frac{e^t - e^{-2t}}{t}\right\} = \ ?$
+
+            \item
+            $\mathcal{L}^{-1}\left\{\frac{2}{s-3} + \frac{s}{9s^2+1}\right\} = \ ?$
+
+            \item
+            $\mathcal{L}^{-1}\left\{\frac{e^{-3s}}{s+1}\right\} = \ ?$
+
+            \item
+            $\mathcal{L}^{-1}\left\{\ln \frac{s-1}{s}\right\} = \ ?$
+
+            \item
+            $\mathcal{L}^{-1}\left\{\frac{s}{s^2+2s+10}\right\} = \ ?$
+        \end{question}
+    \end{multicols}
+
+    \item {}
+    จงหาผลเฉลยของสมการ $\displaystyle y'' + y =
+        \begin{cases}
+            t,   & 0 < t < \pi \\
+            \pi, & t > \pi
+        \end{cases} ; \quad y(0) = 2, \quad y'(0) = 3$ \qmark{7}
+
+    % ----------------------------------------
+
+    % ----------------------------------------
+
+    \item {}
+    จงหาผลเฉลยของระบบสมการเชิงอนุพันธ์\\[.5em]
+    \hspace*{.5cm}$
+        \left\{\begin{aligned}
+            (D-1)x + y  & = 2 \sin t         \\
+            -x + (D+1)y & = 4\cos t - \sin t
+        \end{aligned}\right.
+    $ \quad เมื่อ $x(0) = 2, \quad y(0) = 5$ \qmark{8}
+
+    % ----------------------------------------
+
+    % ----------------------------------------
+
+\end{question}
+
+\subsubsection*{PART D}
+
+\subsubsection*{PART E}
+
+\end{document}
