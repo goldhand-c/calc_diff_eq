@@ -158,7 +158,21 @@
     \bigskip
     Laplace transform both sides; $y(t) \xrightarrow{\mathcal{L}} Y(s)$
     \begin{align*}
-        s Y(s) - y(0) + 2 Y(s) + \frac2s \mathcal{L}\left\{y(t-x)\right\} & = \frac2{s^2}
+        s Y(s) - y(0) + 2 Y(s) + 2 \mathcal{L}\left\{1*y(t)\right\} & = \frac2{s^2}          \\
+        (s + 2) Y(s) + \frac2{s} Y(s)                               & = \frac2{s^2}          \\
+        (s^2 + 2s + 2) Y(s)                                         & = \frac2s              \\
+        Y(s)                                                        & = \frac2{s((s+1)^2+1)} \\
+    \end{align*}
+
+    \vspace{-2em}
+
+    Use Convolution Theorem
+    \begin{align*}
+        y(t) & = 2\mathcal{L}^{-1}\left\{\frac1s\frac1{(s+1)^2+1}\right\} \\
+             & = 2 \left[1 * (e^{-t} \sin t)\right]                       \\
+             & = 2 \int_0^t e^{-u} \sin u \dd{u}                          \\
+             & = \left[e^{-u} (-\cos u) + e^{-u} (- \sin u)\right]_0^t    \\
+             & = \boxed{1 - e^{-t}(\sin t + \cos t)}
     \end{align*}
     % ----------------------------------------
 \end{question}
@@ -196,9 +210,9 @@
         $\mathcal{L}^{-1}\left\{\frac{s}{s^2+2s+10}\right\} =$
         \vspace*{-3.67em}
         \begin{flalign*}
-            \phantom{\mathcal{L}^{-1}\left\{\frac{s}{s^2+2s+10}\right\}} & = \mathcal{L}^{-1}\left\{\frac{s}{(s+1)^2+6}\right\}                         & \\
-                                                                         & = \mathcal{L}^{-1}\left\{\frac{s+1}{(s+1)^2+6} - \frac{1}{(s+1)^2+6}\right\}   \\
-                                                                         & = \boxed{e^{-t}(\sin t - \cos t)}
+            \phantom{\mathcal{L}^{-1}\left\{\frac{s}{s^2+2s+10}\right\}} & = \mathcal{L}^{-1}\left\{\frac{s}{(s+1)^2+9}\right\}                         & \\
+                                                                         & = \mathcal{L}^{-1}\left\{\frac{s+1}{(s+1)^2+9} - \frac{1}{(s+1)^2+9}\right\}   \\
+                                                                         & = \boxed{e^{-t}\left(\cos 3t - \frac13 \sin 3t\right)}
         \end{flalign*}
     \end{question}
 
@@ -220,6 +234,8 @@
         y(t)                             & =  \mathcal{L}^{-1}\left\{\frac1{s^2+1}\left(\frac{1}{s^2} - \frac{e^{-\pi s}}{s^2}\right)\right\} + 2 \cos t + 3 \sin t \\                                                                \\
     \end{align*}
     % ----------------------------------------
+
+    \vspace{-4em}
 
     \item {}
     จงหาผลเฉลยของระบบสมการเชิงอนุพันธ์\\[.5em]

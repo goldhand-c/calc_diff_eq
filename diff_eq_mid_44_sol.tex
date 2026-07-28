@@ -193,6 +193,8 @@
         $$ \boxed{e^x (c_1 + c_2 x + c_3 x^2 + c_4 x^3)} $$
         % ----------------------------------------
 
+        \pagebreak
+
         \item
         ผลเฉลยบริบูรณ์ของสมการสมการเอกพันธ์ุสัมพัทธ์ของสมการ $(D-2)^2(D^2+2D+5)y = e^x$ \qmark{2}
 
@@ -242,6 +244,8 @@
         $$ \boxed{(D-1)D^3} $$
         % ----------------------------------------
 
+        \pagebreak
+
         \item
         สมการเชิงอนุพันธ์สามัญเชิงเส้นเอกพันธุ์ที่มีสัมประสิทธิ์เป็นค่าคงตัวอันดับต่ำที่สุดที่มี $x \cos 2x$ และ $x^2 e^x$ เป็นผลเฉลย \qmark{2}
 
@@ -283,28 +287,136 @@
     จงหาปริพันธ์เฉพาะของสมการ $y'' - y = \frac32(1-\cos2x)$ โดยวิธีเทียบสัมประสิทธิ์ \qmark{7}
 
     % ----------------------------------------
+    \bigskip
+    Find complementary function
+    \begin{align*}
+        (D^2-1) y & = 0                      \\
+        y_c       & = c_1 e^{x} + c_2 e^{-x}
+    \end{align*}
 
+    Find annihilator differential operator of $\frac32 (1 - \cos 2x)$
+    $$
+        Q(D) = D(D^2 + 4)
+    $$
+
+    Solve general solution of this homogenous equation
+    \begin{align*}
+        Q(D)P(D) y        & = 0                                                      \\
+        D(D^2+4)(D^2-1) y & = 0                                                      \\
+        y                 & = c_1 + c_2 \sin 2x + c_3 \cos 2x + c_4 e^x + c_5 e^{-x} \\
+        y_q               & = c_1 + c_2 \sin 2x + c_3 \cos 2x
+    \end{align*}
+
+    Suppose the particular integral is in the same form as $y_q$
+    \begin{align*}
+        y_p                                 & = k_1 + k_2 \sin 2x + k_3 \cos 2x + k_4 e^x + k_5 e^{-x} \\
+        (D^2-1)y_p                          & = \frac32 (1 - \cos 2x)                                  \\
+        -k_1 - 5 k_2\sin 2x - 5 k_3 \cos 2x & = \frac32 (1 - \cos 2x)                                  \\
+        k_1                                 & = -\frac{3}{2}                                           \\
+        k_2                                 & = 0                                                      \\
+        k_3                                 & = \frac{3}{10}
+    \end{align*}
+
+    The particular integral is
+    $$
+        \boxed{y_p = - \frac{3}{2} + \frac{3}{10} \cos 2x}
+    $$
     % ----------------------------------------
 
     \item {}
     จงใช้ตัวดำเนินการผกผันหาปริพันธ์เฉพาะของสมการ $(D^2 - 9D + 18)y = e^{e^{-3x}}$ \qmark{5}
 
     % ----------------------------------------
-
+    \begin{center}
+        --- I don't know ---
+    \end{center}
     % ----------------------------------------
+
+    \pagebreak
 
     \item {}
     จงใช้ตัวดำเนินการผกผันหาปริพันธ์เฉพาะของสมการ $(D^2+9)y = x \cos x$ \qmark{6}
 
     % ----------------------------------------
-
+    \begin{align*}
+        \frac{1}{D^2+9} x \cos x & = \frac{1}{D^2+9} x \Re\left(e^{ix}\right)                                \\
+                                 & = \Re\left(\frac{1}{D^2+9} x e^{ix}\right)                                \\
+                                 & = \Re\left(e^{ix} \frac{1}{(D+i)^2+9} x\right)                            \\
+                                 & = \Re\left(e^{ix} \frac{1}{D^2+2iD-1+9} x\right)                          \\
+                                 & = \Re\left(\frac{e^{ix}}8 \frac{1}{1-(-D^2-2iD)/8} x\right)               \\
+                                 & = \Re\left(\frac{e^{ix}}8 \left(1-\frac{2iD}{8}\right) x\right)           \\
+                                 & = \Re\left(\frac{e^{ix}}8 \left(x - \frac{i}{4}\right)\right)             \\
+                                 & = \frac18 \Re\left((\cos x + i \sin x)\left(x - \frac{i}{4}\right)\right) \\
+        \Aboxed{y_p              & = \frac18 x \cos x + \frac1{16} \sin x}
+    \end{align*}
     % ----------------------------------------
 
     \item {}
     จงหาปริพันธ์เฉพาะของสมการ $(D^3 + D^2 - 2D)y = e^{2x}$ โดยวิธีแปรพารามิเตอร์ \qmark{7}
 
     % ----------------------------------------
+    \bigskip
+    Find complementary function
+    \begin{align*}
+        m^3 + m^2 - 2m & = 0                             \\
+        m^2 + m - 2    & = 0 \quad \text{or} \quad m = 0 \\
+        (m-1)(m+2)     & = 0                             \\
+        m = -2, 1
+    \end{align*}
+    Therefore
+    $$
+        y_c = c_1 + c_2 e^{-2x} + c_3 e^x
+    $$
 
+    Solve for Wronskian
+    \begin{align*}
+        W(1,e^{-2x},e^x) & =
+        \begin{vmatrix}
+            -2e^{-2x} & e^x \\
+            4e^{-2x}  & e^x
+        \end{vmatrix}                \\
+                         & = -6 e^{-x}
+    \end{align*}
+    Let
+    $$
+        y_p = u_1(x) + u_2(x) e^{-2x} + u_3(x) e^x
+    $$
+
+    Find each component
+    \begin{align*}
+        u'_1 & = e^{2x}\frac{
+            \begin{vmatrix}
+                e^{-2x}   & e^x \\
+                -2e^{-2x} & e^x
+            \end{vmatrix}
+        }{W}                                      \\
+             & = e^{2x}\frac{2e^{-x}}{-6e^{-x}}   \\
+             & = -\frac13e^{2x}                   \\
+        u_1  & = - \frac16 e^{2x}                 \\
+        u'_2 & = - e^{2x}\frac{
+            \begin{vmatrix}
+                1 & e^x \\
+                0 & e^x
+            \end{vmatrix}
+        }{W}                                      \\
+             & = e^{2x}\frac{e^x}{-6e^{-x}}       \\
+             & = -\frac16 e^{4x}                  \\
+        u_2  & = - \frac{1}{24} e^{2x}            \\
+        u'_3 & = e^{2x}\frac{
+            \begin{vmatrix}
+                1 & e^{-2x}   \\
+                0 & -2e^{-2x}
+            \end{vmatrix}
+        }{W}                                      \\
+             & = e^{2x}\frac{-2e^{-2x}}{-6e^{-x}} \\
+             & = \frac13 e^x                      \\
+        u_3  & = \frac13 e^x
+    \end{align*}
+    The particular integral is
+    \begin{align*}
+        y_p         & = -\frac16e^{2x} - \frac1{24} e^{2x} + \frac13 e^{2x} \\
+        \Aboxed{y_p & = \frac18 e^{2x}}
+    \end{align*}
     % ----------------------------------------
 \end{question}
 
@@ -315,7 +427,24 @@
     จงหาปริพันธ์เฉพาะของสมการ $(D^2 - 3D + 1)y = x^2 + 15 \sin 2x$ \qmark{8}
 
     % ----------------------------------------
-
+    First part;
+    \begin{align*}
+        \frac{1}{D^2-3D+1}x^2 & = (1 - (D^2 - 3D) + (D^2 - 3D)^2) x^2 \\
+                              & = x^2 - 2 + 6x + 18                   \\
+                              & = x^2 + 6x + 16
+    \end{align*}
+    Second part;
+    \begin{align*}
+        \frac{1}{D^2-3D+1}\sin2x & = \frac{1}{-2^2-3D+1}\sin 2x                                                          \\
+                                 & = -\frac13 \frac{1}{D+1}\sin 2x                                                       \\
+                                 & = -\frac13 e^{-x} \int e^x \sin 2x \dd{x}                                             \\
+                                 & = -\frac13 e^{-x} \frac45 \left(\frac12 e^x (-\cos 2x) + \frac14 e^x (\sin 2x)\right) \\
+                                 & = \frac{1}{15} (2 \cos 2x - \sin 2x)
+    \end{align*}
+    The particular integral is
+    $$
+        \boxed{y_p = x^2 + 6x + 16 + 2 \cos 2x - \sin 2x}
+    $$
     % ----------------------------------------
 
     \item {}
