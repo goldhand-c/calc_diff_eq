@@ -17,7 +17,35 @@
     และจากรอนสเกียนที่หาได้จงบอกว่าฟังก์ชันทั้งสามเป็นอิสระเชิงเส้นต่อกันหรือไม่บนช่วง $(-\infty, \infty)$ เพราะเหตุใด \qmark{3}
 
     % ----------------------------------------
+    \begin{align*}
+        W(e^x, \cos x, \sin x) & =
+        \begin{vmatrix}
+            e^x & \cos x  & \sin x  \\
+            e^x & -\sin x & \cos x  \\
+            e^x & -\cos x & -\sin x
+        \end{vmatrix}                           \\[1ex]
+                               & =
+        e^x\Bigg(
+        \begin{vmatrix}
+                -\sin x & \cos x  \\
+                -\cos x & -\sin x
+            \end{vmatrix}                                 \\
+                               & \qquad -
+        \begin{vmatrix}
+                \cos x  & \sin x  \\
+                -\cos x & -\sin x
+            \end{vmatrix}                                 \\
+                               & \qquad +
+        \begin{vmatrix}
+                \cos x  & \sin x \\
+                -\sin x & \cos x
+            \end{vmatrix}
+        \Bigg)                                            \\
+                               & =        e^x (1 - 0 + 1) \\
+                               & = \boxed{2e^x}
+    \end{align*}
 
+    Since Wronskian is not equal to $0$ anywhere, then all three functions are linearly independent on $(-\infty, \infty)$.
     % ----------------------------------------
 
     \item {}
@@ -25,17 +53,91 @@
     และจงหาผลเฉลยบริบูรณ์ของสมการนี้บนช่วง $(1, \infty)$ โดยให้พิจารณาจากฟังก์ชัน $e^x, x$ และ $x^3$ \qmark{8}
 
     % ----------------------------------------
+    \bigskip
+    Since every coefficients are polynomials of $x$, they are differentiable everywhere.
+    The condition that $1-x \neq 0$ is satisfied for any $x \in (1, \infty)$.
+    Therefore this equation is normal on $(1, \infty)$.
 
+    \medskip
+    Solve the relative homogenous equation. \\
+    Try $y = c_1 e^x$;
+    $$
+        (1-x)c_1 e^x + x c_1 e^x - c_1 e^x = 0
+    $$
+    is true for all $c_1$, so $c_1 e^x$ is a solution.
+
+    Try $y = c_2 x$;
+    $$
+        x c_2 - c_2 x = 0
+    $$
+    is true for all $c_2$, so $c_2 x$ is a solution.
+
+    \medskip
+    Since we have 2 linearly independent solutions, we can conclude that the solution to this relative homogenous equation is
+    $$
+        y = c_1 e^x + c_2 x
+    $$
+
+    \medskip
+    Solve the particular integral. \\
+    Try $y = x^3$
+    \begin{align*}
+        6 (1-x) x + 3 x x^2 - x^3 & = 2x^3 - 6x^2 + 6x \\
+        6x - 6x^2 + 2x^3          & = 2x^3 - 6x^2 + 6x \\
+    \end{align*}
+    Therefore $x^3$ is the particular integral.
+
+    \medskip
+    The complete solution is
+    $$
+        \boxed{y = c_1 e^x + c_2 x + x^3}
+    $$
     % ----------------------------------------
 
     \item {}
     ลวดสปริงเส้นหนึ่งถูกยึดปลายบนติดกับเพดาน
-    เมื่อนําวัตถุหนัก $6$ ปอนด์ มาผูกติดไว้ที่ปลายล่างของลวดสปริงจะทําให้ฃดลวดสปริงยืดออก $6$ นิ้ว
+    เมื่อนําวัตถุหนัก $6$ ปอนด์ มาผูกติดไว้ที่ปลายล่างของลวดสปริงจะทําให้ขดลวดสปริงยืดออก $6$ นิ้ว
     ถ้าดึงวัตถุนี้ลงมาต่ำกว่าตำแหน่งสมดุล $4$ นิ้ว แล้วปล่อยด้วยการผลักวัตถุขึ้นด้วยความเร็ว $\frac83$ ฟุต/วินาที \\
     จงหาสมการของการเคลื่อนที่ของวัตถุพร้อมทั้งบอกค่าแอมพลิจูด และมุมทิ้งช่วง \qmark{10}
 
     % ----------------------------------------
-
+    \bigskip
+    The governing equation is (positive $x$ direction is downward)
+    $$
+        mg - kx = m\ddot{x}
+    $$
+    Using the equilibrium case
+    \begin{align*}
+        mg & = kx_0                                                \\
+        k  & = \frac{mg}{x_0}                                      \\
+        k  & = \frac{\SI{6}{lb}\cdot\SI{32}{ft/s^2}}{\SI{0.5}{ft}} \\
+        k  & = \SI{384}{lb/s^2}
+    \end{align*}
+    Rewrite the equation as
+    \begin{align*}
+        k(x_0 - x)                           & = m\ddot{x}                    \\
+        (\SI{384}{lb/s^2})(\SI{0.5}{ft} - x) & = (\SI{6}{lb})\ddot{x}         \\
+        32 - 64 x                            & = \ddot{x}                     \\
+        (D^2+8^2)x                           & = 32                           \\
+        x(t)                                 & = A \sin(8t + \phi_0)\,\si{ft}
+    \end{align*}
+    Use initial conditions
+    \begin{align*}
+        x_0               & = A \sin(\phi_0)\,\si{ft}    \\
+        \frac13           & = A \sin(\phi_0) \tag{i}     \\
+        x'(0)             & = 8A \cos(\phi_0)\,\si{ft/s} \\
+        -\frac83          & = 8A \cos(\phi_0)            \\
+        -\frac13          & = A \cos(\phi_0) \tag{ii}    \\
+        \intertext{$(\mathrm i)^2 + (\mathrm{ii})^2$;}
+        \frac19 + \frac19 & = A^2                        \\
+        A                 & = \frac{\sqrt2}{3} \tag{iii} \\
+        \intertext{Substitute (iii) into (i);}
+        \sin(\phi_0)      & = \frac1{\sqrt2}             \\
+        \phi_0            & = \frac\pi4, \pi - \frac\pi4 \\
+        \intertext{Since $\frac\pi2 < \phi_0 < \pi$;}
+        \phi_0            & = \frac{3\pi}{4}
+    \end{align*}
+    The amplitude is $\boxed{\frac{\sqrt2}3\,\si{ft}}$ and the angle of departure is $\boxed{\frac{3\pi}{4}\,\si{rad}}$.
     % ----------------------------------------
 
     \item {}
@@ -46,7 +148,8 @@
         จงหา แอมพลิจูด คาบ และความถี่ของการเคลื่อนที่ \qmark{1.5}
 
         % ----------------------------------------
-
+        \bigskip
+        Amplitude is $\boxed{\frac13}$. Period is $\boxed{2}$. Frequency is $\boxed{\frac12}$.
         % ----------------------------------------
 
         \item
@@ -54,7 +157,14 @@
         พร้อมทั้งอธิบายลักษณะของการเคลื่อนที่ของวัตถุ ณ ขณะนั้น \qmark{3.5}
 
         % ----------------------------------------
-
+        \begin{align*}
+            x(1)   & = \frac13 \sin\left(\pi - \frac\pi4\right)   \\
+                   & = \boxed{\frac1{3\sqrt2}}                    \\
+            x'(1)  & = \frac\pi3 \cos\left(\pi - \frac\pi4\right) \\
+                   & = \boxed{\frac{\pi}{3\sqrt2}}                \\
+            x''(1) & = \boxed{-\frac{\pi^2}{3\sqrt2}}
+        \end{align*}
+        The object is travelling in $+x$ direction and is getting accelerated into $-x$ direction.
         % ----------------------------------------
     \end{question}
 \end{question}
@@ -69,70 +179,70 @@
         ผลเฉลยบริบูรณ์ของสมการ $D(D-3)y = 0$ \qmark{2}
 
         % ----------------------------------------
-
+        $$ \boxed{y = c_1 + c_2 e^{3x}} $$
         % ----------------------------------------
 
         \item
         ผลเฉลยบริบูรณ์ของสมการ $(D^2 - 2D + 2)^2 y = 0$ \qmark{2}
 
         % ----------------------------------------
-
+        $$ \boxed{e^x (c_1 + c_2 x + c_3 x^2 + c_4 x^3)} $$
         % ----------------------------------------
 
         \item
         ผลเฉลยบริบูรณ์ของสมการสมการเอกพันธ์ุสัมพัทธ์ของสมการ $(D-2)^2(D^2+2D+5)y = e^x$ \qmark{2}
 
         % ----------------------------------------
-
+        $$ \boxed{e^{2x} (c_1 + c_2 x) + e^{-x}(c_3 \cos(2x) + c_4 \sin(2x))} $$
         % ----------------------------------------
 
         \item
         ผลเฉลยเฉพาะหรือปริพันธ์เฉพาะของสมการ $(D-2)^2(D^2+2D+5)y = e^x$ \qmark{2}
 
         % ----------------------------------------
-
+        $$ \boxed{\frac18 e^x} $$
         % ----------------------------------------
 
         \item
         ผลเฉลยบริบูรณ์ของสมการสมการเอกพันธ์ุสัมพัทธ์ของสมการ $y^{(4)} + 4y'' = \sin x$ \qmark{2}
 
         % ----------------------------------------
-
+        $$ \boxed{c_1 + c_2 x + c_3 \cos(2x) + c_4 \sin(2x)} $$
         % ----------------------------------------
 
         \item
         ผลเฉลยเฉพาะหรือปริพันธ์เฉพาะของสมการ $y^{(4)} + 4y'' = \sin x$ \qmark{2}
 
         % ----------------------------------------
-
+        $$ \boxed{-\frac{1}{3} \sin x} $$
         % ----------------------------------------  
 
         \item
         ตัวดําเนินการเชิงอนุพันธ์อันดับต่ำที่สุดที่ลบล้าง $xe^{2x}$ \qmark{2}
 
         % ----------------------------------------
-
+        $$ \boxed{(D-2)^2} $$
         % ----------------------------------------
 
         \item
         ตัวดําเนินการเชิงอนุพันธ์อันดับต่ำที่สุดที่ลบล้าง $e^{-x}\sin 3x$ \qmark{2}
 
         % ----------------------------------------
-
+        $$ \boxed{(D-1)^2 + 9} $$
         % ----------------------------------------
 
         \item
         สมการเชิงอนุพันธ์สามัญเชิงเส้นเอกพันธุ์ที่มีสัมประสิทธิ์เป็นค่าคงตัวอันดับต่ำที่สุดที่มี $e^x$ และ $x^2$ เป็นผลเฉลย \qmark{2}
 
         % ----------------------------------------
-
+        $$ \boxed{(D-1)D^3} $$
         % ----------------------------------------
 
         \item
         สมการเชิงอนุพันธ์สามัญเชิงเส้นเอกพันธุ์ที่มีสัมประสิทธิ์เป็นค่าคงตัวอันดับต่ำที่สุดที่มี $x \cos 2x$ และ $x^2 e^x$ เป็นผลเฉลย \qmark{2}
 
         % ----------------------------------------
-
+        $$ \boxed{(D^2 + 4)^2 (D-1)^3} $$
         % ----------------------------------------
     \end{question}
 
@@ -141,7 +251,24 @@
     $y''' + y'' = 0; \quad y(0) = 2, \quad y'(0) = 0, \quad y''(0) = 1$ \qmark{5}
 
     % ----------------------------------------
-
+    \bigskip
+    Rewrite the equation as
+    $$ D^2(D - 1) y = 0 $$
+    The general solution is
+    $$ y = c_1 + c_2 x + c_3 e^x $$
+    Solve for the coefficients
+    \begin{align*}
+        y''(0) & = c_3 e^0                 \\
+        1      & = c_3                     \\
+        y'(0)  & = c_2 + c_3 e^0           \\
+        0      & = c_2 + 1                 \\
+        -1     & = c_2                     \\
+        y(0)   & = c_1 + c_2 (0) + c_3 e^0 \\
+        2      & = c_1 + 1                 \\
+        1      & = c_1
+    \end{align*}
+    Therefore the particular solution is
+    $$ \boxed{y = 1 - x + e^x} $$
     % ----------------------------------------
 \end{question}
 
@@ -191,6 +318,33 @@
     จงหาผลเฉลยบริบูรณ์ของสมการ $4x^2y'' + 8xy' + y = x^3$ \qmark{6}
 
     % ----------------------------------------
+    \bigskip
+    This is a Cauchy-Euler equation.
+    Substitute $x = e^z$, then
+    $$ x^n \dv[n]{y}{x} = D(D-1)\cdots(D-n+1)y \ \text{if}\  D = \dv{z} $$
+
+    The equation becomes
+    \begin{align*}
+        4 D(D-1)y + 8Dy + y          & = 0                          \\
+        (4D^2 + 4D + 1) y            & = 0                          \\
+        \left(D + \frac12\right)^2 y & = 0                          \\
+        y_c                          & = e^{-z/2} (c_1 + c_2 z)     \\
+        y_c                          & = x^{-1/2} (c_1 + c_2 \ln x)
+    \end{align*}
+
+    The particular integral is
+    \begin{align*}
+        y_p & = \frac{1}{4(D + 1/2)^2} e^{3z}                    \\
+            & = \frac14 e^{-z/2} \iint e^{z/2} e^{3z} (\dd{z})^2 \\
+            & = \frac1{14} e^{-z/2} \int e^{7z/2} \dd{z}         \\
+            & = \frac1{49} e^{3z}                                \\
+            & = \frac1{49} x^3
+    \end{align*}
+
+    The complete solution is
+    $$
+        \boxed{y = x^{-1/2} (c_1 + c_2 \ln x) + \frac1{49} x^3}
+    $$
 
     % ----------------------------------------
 
@@ -199,7 +353,32 @@
     (เขียนผลเฉลยให้เห็นอย่างน้อยถึงพจน์ $x^5$) \qmark{10}
 
     % ----------------------------------------
+    \bigskip
+    Let $ \displaystyle y = \sum_{n=0}^\infty a_n x^n $.
+    \begin{align*}
+        \sum_{n=2}^\infty n(n-1) a_n x^{n-2} - x \sum_{n=1}^\infty n a_n x^{n-1} - \sum_{n=0}^\infty a_n x^n & = 0 \\
+        \sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^n - \sum_{n=1}^\infty n a_n x^n - \sum_{n=0}^\infty a_n x^n   & = 0 \\
+        2 a_2 - a_0 + \sum_{n=1}^\infty (n+2)(n+1) a_{n+2} x^n - n a_n x^n - a_n x^n                         & = 0
+    \end{align*}
 
+    Solve for coefficients
+    \begin{align*}
+        a_2     & = \frac{a_0}{2}     \\
+        a_{n+2} & = \frac{1}{n+2} a_n \\
+    \end{align*}
+
+    Let $a_0 = c_1$ and $a_1 = c_2$, then
+    \begin{align*}
+        a_2 & = \frac{c_1}{2}  \\
+        a_3 & = \frac{c_2}{3}  \\
+        a_4 & = \frac{c_1}{8}  \\
+        a_5 & = \frac{c_2}{15}
+    \end{align*}
+
+    The solution is
+    $$
+        \boxed{y = c_1\left(1 + \frac{x^2}{2} + \frac{x^4}{8} + \cdots\right) + c_2\left(x + \frac{x^3}{3} + \frac{x^5}{15} + \cdots\right)}
+    $$
     % ----------------------------------------
 \end{question}
 
