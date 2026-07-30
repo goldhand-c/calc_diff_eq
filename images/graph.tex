@@ -16,27 +16,27 @@
             axis lines=middle,
             ymajorgrids=true,
             xmajorgrids=true,
-            xmin=-10.0,
-            xmax=10.0,
-            ymin=-7,
-            ymax=10.0,
+            xmin=-10,
+            xmax=10,
+            ymin=-4.5,
+            ymax=5.5,
             xtick={-3*pi,-2*pi,...,3*pi},
-            ytick={-2*pi,-1*pi,...,3*pi},
+            ytick={-1*pi,0,1*pi},
             xticklabels={$-3\pi$,$-2\pi$,$-\pi$,$0$,$\pi$,$2\pi$,$3\pi$},
-            yticklabels={$-2\pi$,$-\pi$,$0$,$\pi$,$2\pi$,$3\pi$},
+            yticklabels={$-\pi$,$0$,$\pi$},
             ticklabel style={
                     text depth=0pt,
                     text height=1ex,
                 },
-            tick style={line width=.5pt}
+            axis line style={line width=.6pt},
+            grid style={line width=.4pt},
+            tick style={line width=.75pt}
         ]
         \clip(-10.,-10.) rectangle (10.,10.);
-        \draw[line width=1.5pt,color=red] (-3.1415926000000023,0.0) -- (-0.007853988154731572,0.0);
-        \draw[line width=1.5pt,color=blue] (0.0,3.1415926535897953) -- (3.1337360250000166,0.007856628589776538);
-        \draw[line width=1.5pt,color=red] (3.1415928000000015,0.0) -- (6.275328262071768,0.0);
-        \draw[line width=1.5pt,color=blue] (6.283185399999991,-3.141592746410198) -- (9.424774622060234,-6.283181968470441);
-        \draw[line width=1.5pt,color=blue] (-6.283185200000037,9.42477785358983) -- (-3.1494467524739185,6.291039406063712);
-        \draw[line width=1.5pt,color=red] (-9.424777799999983,0.0) -- (-6.291039351993112,0.0);
+        \draw[line width=1.25pt,color=blue] (-3*pi,0) -- (-2*pi,0);
+        \draw[line width=1.25pt,color=blue] (-2*pi,pi) -- (-pi,0) -- (0,0);
+        \draw[line width=1.25pt,color=blue] (0,pi) -- (pi,0) -- (2*pi,0);
+        \draw[line width=1.25pt,color=blue] (2*pi,pi) -- (3*pi,0);
     \end{axis}
 \end{tikzpicture}%
 \end{document}

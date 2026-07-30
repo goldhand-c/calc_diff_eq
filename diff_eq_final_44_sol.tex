@@ -453,9 +453,9 @@
         จงเขียนกราฟของฟังก์ชัน $f(x)$ บนช่วง $(-3\pi, 3\pi)$
 
         % ----------------------------------------
-        \medskip
+        \bigskip
         \begin{center}
-            \includegraphics{images/graph.pdf}
+            \includegraphics[scale=1.2]{images/graph.pdf}
         \end{center}
         % ----------------------------------------
 
@@ -463,14 +463,41 @@
         จงหาอนุกรมฟูเรียร์ของฟังก์ชัน $f(x)$
 
         % ----------------------------------------
-
+        \vspace*{-1em}
+        \begin{align*}
+            a_0          & = \frac{1}{\pi} \int_{-\pi}^\pi f(x) \dd{x}                                                                              \\
+                         & = \frac{1}{\pi} \int_0^\pi \pi - x \dd{x}                                                                                \\
+                         & = \frac{1}{\pi} \left[\pi x - \frac{x^2}{2}\right]_0^\pi                                                                 \\
+                         & = \frac{\pi}{2}                                                                                                          \\
+            \intertext{Find $a_n$}
+            a_n          & = \frac{1}{\pi} \int_0^\pi (\pi - x) \cos n x \dd{x}                                                                     \\
+                         & = \frac{1}{\pi} \int_0^\pi x \cos(n(\pi - x)) \dd{x}                                                                     \\
+                         & = \frac{1}{\pi} \left[-\frac x n \sin(n(\pi - x))\right]_0^\pi + \int_0^\pi \frac{1}{n} \sin(n(\pi-x)) \dd{x}            \\
+                         & = \frac{1}{\pi} \left[-\frac x n \sin(n(\pi - x)) + \frac{1}{n^2} \cos(n(\pi - x))\right]_0^\pi                          \\
+                         & = \frac{1}{\pi} \left(\frac{1-(-1)^n}{2n^2}\right)                                                                       \\
+            \intertext{Find $b_n$}
+            b_n          & = \frac{1}{\pi} \int_0^\pi (\pi - x) \sin n x \dd{x}                                                                     \\
+                         & = \frac{1}{\pi} \int_0^\pi x \sin(n(\pi - x)) \dd{x}                                                                     \\
+                         & = \frac{1}{\pi} \left[\frac x n \cos(n(\pi - x))\right]_0^\pi - \int_0^\pi \frac{1}{n} \cos(n(\pi-x)) \dd{x}             \\
+                         & = \frac{1}{\pi} \left[\frac x n \cos(n(\pi - x)) + \frac{1}{n^2} \sin(n(\pi - x))\right]_0^\pi                           \\
+                         & = \frac{1}{n}                                                                                                            \\
+            \intertext{Fourier series of $f(x)$ is}
+            \Aboxed{f(x) & = \frac{\pi}{4} + \frac{1}{\pi} \sum_{n=1}^\infty \left[ \frac{1-(-1)^n}{2n^2} \cos n x + \frac{\pi}{n} \sin n x\right]}
+        \end{align*}
         % ----------------------------------------
 
         \item
         จงหาผลบวกของ $\displaystyle \sum_{n=1}^{\infty} \frac{1}{(2n - 1)^2}$ \qmark{10}
 
         % ----------------------------------------
-
+        \vspace*{-1em}
+        \begin{align*}
+            f(0)                                   & = \frac{\pi}{4} + \frac{2}{\pi}\sum_{n=1}^{\infty} \frac{1}{(2n-1)^2}                                       \\
+            \sum_{n=1}^{\infty} \frac{1}{(2n-1)^2} & = \frac{\pi}{2} \left(f(0) - \frac{\pi}{4}\right)                                                           \\
+                                                   & = \frac{\pi}{2} \left(\frac12 \left(\lim_{x\to0^-} f(x) + \lim_{x\to0^+} f(x)\right) - \frac{\pi}{4}\right) \\
+                                                   & = \frac{\pi}{2} \left(\frac12 (0 + \pi) - \frac{\pi}{4}\right)                                              \\
+                                                   & = \boxed{\frac{\pi^2}{8}}
+        \end{align*}
         % ----------------------------------------
     \end{question}
 
@@ -480,7 +507,15 @@
     จงเขียนปัญหาค่าเริ่มต้นและค่าขอบของโจทย์นี้โดยไม่ต้องหาผลเฉลย (กำหนดให้ $c^2 = 1$) \qmark{3}
 
     % ----------------------------------------
-
+    $$
+        \boxed{
+            \begin{array}{c} \displaystyle
+                \pdv[2]{u}{t} = \pdv[2]{u}{x}, \quad 0 < x < \pi, \quad t > 0 \\[.5em]
+                u(0,t) = 0, \quad u(\pi,t) = 0 , \quad t \geq 0               \\[.5em]
+                u(x,0) = x(\pi - x), \quad u_t(x,0) = 3, \quad 0 < x < \pi    \\
+            \end{array}
+        }
+    $$
     % ----------------------------------------
 
     \item {}
@@ -492,14 +527,30 @@
     และเงื่อนไขเริ่มต้น \quad $u(x, 0) = f(x), \quad 0 < x < L$ \qmark{12}
 
     % ----------------------------------------
-
+    $$
+        \boxed{
+            \begin{array}{c} \displaystyle
+                u(x,t) = \sum_{n=1}^\infty A_n e^{-(\frac{n\pi}{L})^2c^2t} \sin\frac{n\pi}{L}x \\[1em]
+                \displaystyle A_n = \frac{2}{L} \int_0^L f(x) \sin\frac{n\pi}{L} x \dd{x}, \quad n = 1,2,3,\ldots
+            \end{array}
+        }
+    $$
     % ----------------------------------------
 
     \item {}
     จงหาผลเฉลยของปัญหาในข้อ 14 เมื่อกำหนดให้ $c^2 = 9, L = 4, f(x) = x + 12$ \qmark{5}
 
     % ----------------------------------------
-
+    \vspace*{-1em}
+    \begin{align*}
+        A_n    & = \frac24 \int_0^4 (x + 12) \sin\frac{n\pi}{4}x \dd{x}                                                                                            \\
+               & = \frac12 \left[-\frac{4}{n\pi} x\cos\frac{n\pi}{4} x + \frac{16}{n^2\pi^2} \sin\frac{n\pi}{4}x - \frac{48}{n\pi} \cos\frac{n\pi}{4}x \right]_0^4 \\
+               & = \frac12 \left(\frac{16(-1)^{n+1}}{n\pi} + \frac{48(-1)^{n+1}}{n\pi} + \frac{48}{n\pi}\right)                                                    \\
+               & = \frac{1}{n\pi} \left(32 (-1)^{n+1} + 24\right)                                                                                                  \\
+        \intertext{The solution}
+        u(x,t) & = \sum_{n=1}^\infty A_n e^{-(\frac{n\pi}{4})^29t} \sin\frac{n\pi}{4}x                                                                             \\
+               & = \boxed{\sum_{n=1}^\infty \frac{1}{n\pi} \left(32 (-1)^{n+1} + 24\right) e^{-\frac{9n^2\pi^2}{16}t} \sin\frac{n\pi}{4}x}                         \\
+    \end{align*}
     % ----------------------------------------
 \end{question}
 
@@ -569,11 +620,38 @@
 
     \item {}
     จงหาประจุไฟฟ้า $q(t)$ บนตัวเก็บประจุในวงจรไฟฟ้าแบบอนุกรม $RLC$ ที่เวลา $t = 0.01$ วินาที \\
-    เมื่อ $L = 0.05$ เฮนรี, $C = 0.01$ ฟารัด, $E(t) = 0$ โวลต์, $q(0) = 5$ คูลอมบ์ และ $i(0) = 0$ แอมแปร์
+    เมื่อ $L = 0.05$ เฮนรี, $R = 2$ โอห์ม, $C = 0.01$ ฟารัด, $E(t) = 0$ โวลต์, $q(0) = 5$ คูลอมบ์ และ $i(0) = 0$ แอมแปร์
     และจงพิจารณาหาเวลาที่ประจุไฟฟ้าบนตัวเก็บประจุเป็นศูนย์ครั้งแรก \qmark{10}
 
     % ----------------------------------------
-
+    \vspace*{-1em}
+    \begin{align*}
+        E_L + E_R + E_C                                                                 & = E(t)                                                              \\
+        L \dv{i}{t} + Ri + \frac{1}{C} q                                                & = E(t)                                                              \\
+        L \dv[2]{q}{t} + R \dv{q}{t} + \frac{1}{C} q                                    & = E(t)                                                              \\
+        \intertext{Substitute in the quantities}
+        (\SI{0.05}{H})\dv[2]{q}{t} + (\SI{2}{\ohm})\dv{q}{t} + \frac{1}{\SI{0.01}{F}} q & = 0                                                                 \\
+        \dv[2]{q}{t} + 40 \dv{q}{t} + 2000 q                                            & = 0                                                                 \\
+        ((D+20)^2 + 40^2) q                                                             & = 0                                                                 \\
+        q                                                                               & = e^{-20t} (c_1 \cos 40 t + c_2 \sin 40 t)\,\si{C}                  \\
+        \intertext{Check $q(0) = \SI{5}{C}$}
+        c_1                                                                             & = 5
+        \intertext{Check $i(0) = \SI{0}{A}$}
+        i                                                                               & =
+        \begin{aligned}
+            e^{-20t} (-20 c_1 \cos 40 t -20 c_2 \sin 40 t \hspace*{2.5em} \\
+            -40 c_1 \sin 40 t + 40 c_2 \cos 40 t)\,\si{A}
+        \end{aligned}                                                                                         \\
+        0                                                                               & = - 100 + 40 c_2                                                    \\
+        c_2                                                                             & = \frac52                                                           \\
+        \intertext{The charge function of time}
+        q(t)                                                                            & = e^{-20t} \left(5 \cos 40 t + \frac52 \sin 40 t\right)\,\si{C}     \\
+        q(0.01)                                                                         & = \boxed{e^{-5} \left(5 \cos 0.4 + \frac52 \sin 0.4\right)\,\si{C}} \\
+        \intertext{Find the time when charge is 0}
+        0                                                                               & = \cos 40 t + \frac12 \sin 40 t                                     \\
+        \tan 40 t                                                                       & = - 2                                                               \\
+        t                                                                               & = \boxed{\frac{1}{40}\left(\pi - \arctan 2 \right)\,\si{s}}
+    \end{align*}
     % ----------------------------------------
 \end{question}
 
