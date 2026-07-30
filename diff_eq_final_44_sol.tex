@@ -16,7 +16,71 @@
     จงหาผลเฉลยในรูปอนุกรมกำลังรอบจุด $x=0$ ของสมการ $2x^2y'' + x(2x+1)y' - y = 0$ โดยวิธีของโฟรเบนิอุส \qmark{12}
 
     % ----------------------------------------
+    \bigskip
+    Let $P(x) = (2 + \frac1x)$ and $Q(x) = \frac1{x^2}$.
+    Then, $x = 0$ is a regular singular point because $xP(x)$ and $x^2Q(x)$ are analytic functions at $x = 0$.
 
+    \medskip
+    Suppose that $\displaystyle y = \sum_{n=0}^\infty a_n x^{n+r}, \quad a_n \neq 0$
+    \begin{align*}
+        2 x^2 \sum_{n=0}^\infty (n+r)(n+r-1) a_n x^{n+r-2} + x(2x + 1) \sum_{n=0}^\infty (n+r) a_n x^{n+r-1} - \sum_{n=0}^\infty a_n x^{n+r} & = 0 \\
+        \sum_{n=0}^\infty \left[ 2 (n+r)(n+r-1) a_n x^{n+r} + 2 (n+r) a_n x^{n+r+1} + (n+r) a_n x^{n+r} - a_n x^{n+r} \right]                & = 0 \\
+    \end{align*}
+
+    \vspace{-2em}
+
+    The coefficient of the lowest degree term $x^r$ is
+    $$
+        (2r(r-1) + r - 1)a_n
+    $$
+
+    Solve the indicial equation
+    \begin{align*}
+        (2r(r-1) + r - 1)a_n & = 0                                           \\
+        2r^2 - r - 1         & = 0                                           \\
+        r                    & = \frac{1 \pm \sqrt{(-1)^2 - 4(2)(-1)}}{2(2)} \\
+                             & = \frac{1 \pm 3}{4}                           \\
+                             & = -\frac12, 1
+    \end{align*}
+
+    Find the recursive formula (set powers of $x$ to $n+r+1$)
+    $$
+        2 (n+r+1)(n+r) a_{n+1} + 2 (n+r) a_n + (n+r+1) a_{n+1} - a_{n+1} = 0                                                              \\
+    $$
+    \vspace*{-2em}
+    \begin{align*}
+        a_{n+1} & = -\frac{2(n+r) a_n}{2(n+r+1)(n+r) + (n+r)} \\
+                & = - \frac{2 a_n}{2(n+r+1) + 1}
+    \end{align*}
+
+    Case $r_1 = -\frac12$
+    \begin{align*}
+        a_{n+1} & = - \frac{2 a_n}{2n - 1 + 2 + 1}                    \\
+                & = - \frac{a_n}{n + 1}                               \\
+        a_n     & = \frac{(-1)^n}{n!} a_0                             \\
+        \intertext{Let $c_1 = a_0$}
+        y_1     & = c_1 \sum_{n=0}^\infty \frac{(-1)^n}{n!} x^{n-1/2} \\
+                & = c_1 \frac{e^{-x}}{\sqrt{x}}
+    \end{align*}
+
+    Case $r_2 = 1$
+    \begin{align*}
+        a_{n+1} & = - \frac{2 a_n}{2n + 5} \\
+    \end{align*}
+
+    \vspace{-2em}
+    Let $c_2 = a_0$
+    \vspace{1em}
+    $$
+        y_2 = c_2 \left(x - \frac25 x^2 + \frac{4}{7\cdot5} x^3 - \frac{8}{9\cdot7\cdot5} x^4 + \dots\right)
+    $$
+
+    \medskip
+
+    The general solution is
+    $$
+        \boxed{y = c_1 \frac{e^{-x}}{\sqrt{x}} + c_2 \left(x - \frac25 x^2 + \frac{4}{7\cdot5} x^3 - \frac{8}{9\cdot7\cdot5} x^4 + \dots\right)}
+    $$
     % ----------------------------------------
 
     \item {}
@@ -31,6 +95,8 @@
                                                          & = \boxed{\frac14 \Gamma\left(\frac14\right)}
         \end{align*}
         % ----------------------------------------
+
+        \pagebreak
 
         \item
         $\displaystyle \int_{2\pi}^\infty e^{-4t} \sin 2t \cos 2t \dd{t}$ \qmark{4}
@@ -69,6 +135,26 @@
     จงหาผลเฉลยของสมการ $\displaystyle xy'' + y' - \left(\frac1x - \frac x4\right)y = 0$ \qmark{8}
 
     % ----------------------------------------
+    \bigskip
+    Multiply the whole equation by $x$
+    $$
+        x^2 y'' + xy' - \left(1 - \frac {x^2}4\right) y = 0
+    $$
+
+    This is a Bessel's differential equation where
+    $$
+        x^2 \dv[2]{y}{x} + (1 - 2s) x \dv{y}{x} + \left[a^2r^2x^{2r} + (s^2 - r^2v^2)\right] y =0
+    $$
+
+    has general solution in Bessel function form as
+    $$
+        y(x) = c_1 x^s J_v(ax^r) + c_2 x^s Y_v(ax^r)
+    $$
+
+    Use $s = 0, r = 1, a = \frac12, v = 1$; The general solution is
+    $$
+        \boxed{y = c_1 J_1\left(\frac x2\right) + c_2 Y_1\left(\frac x2\right)}
+    $$
 
     % ----------------------------------------
 
@@ -312,7 +398,7 @@
         (D-1) x + y     & = 2 \sin t \\
         \begin{aligned}
             (D-1) (c_1 + c_2 t - 3 \sin t + 2 \cos t) \hspace*{2.5em} \\
-            + c_3 + c_4 t + \sin t + 5 \cos t
+            + \,c_3 + c_4 t + \sin t + 5 \cos t
         \end{aligned}
                         & = 2 \sin t \\
         \begin{aligned}
