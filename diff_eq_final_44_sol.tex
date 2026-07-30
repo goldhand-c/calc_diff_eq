@@ -225,30 +225,130 @@
         \end{cases} ; \quad y(0) = 2, \quad y'(0) = 3$ \qmark{7}
 
     % ----------------------------------------
-    Rewrite into heaviside function
+    \bigskip
+    Rewrite into a heaviside function
     \begin{align*}
         y'' + y                          & = t - H(t-\pi)(t - \pi)
         \intertext{Laplace transform both sides; $y(t) \xrightarrow{\mathcal{L}} Y(s)$}
         s^2 Y(s) - s y(0) - y'(0) + Y(s) & = \frac{1}{s^2} - \frac{e^{-\pi s}}{s^2}                                                                                 \\
         (s^2 + 1) Y(s) - 2s - 3          & = \frac{1}{s^2} - \frac{e^{-\pi s}}{s^2}                                                                                 \\
         Y(s)                             & = \frac1{s^2+1}\left(\frac{1}{s^2} - \frac{e^{-\pi s}}{s^2} + 2s + 3\right)                                              \\
-        y(t)                             & =  \mathcal{L}^{-1}\left\{\frac1{s^2+1}\left(\frac{1}{s^2} - \frac{e^{-\pi s}}{s^2}\right)\right\} + 2 \cos t + 3 \sin t \\                                                                \\
+        y(t)                             & =  \mathcal{L}^{-1}\left\{\frac1{s^2+1}\left(\frac{1}{s^2} - \frac{e^{-\pi s}}{s^2}\right)\right\} + 2 \cos t + 3 \sin t \\
+    \end{align*}
+
+    \vspace{-2em}
+
+    The first part (use Convolution Theorem)
+    \begin{align*}
+        \mathcal{L}^{-1}\left\{\frac{1}{s^2+1}\frac{1}{s^2}\right\} & = \sin t * t                                      \\
+                                                                    & = \int_0^t \sin u (t - u) \dd{u}                  \\
+                                                                    & = \left[- t \cos u + u \cos u - \sin u\right]_0^t \\
+                                                                    & = - \sin t + t
+    \end{align*}
+
+    The second part (use $\mathcal{L}^{-1}\left\{e^{-as}F(s)\right\} = f(t-a) H(t-a)$)
+    \begin{align*}
+        \mathcal{L}^{-1}\left\{e^{-\pi s}\frac{1}{s^2+1}\frac{1}{s^2}\right\} & = H(t - \pi) (- \sin(t - \pi) + t - \pi) \\
+                                                                              & = H(t - \pi) (\sin t + t - \pi)
+    \end{align*}
+
+    The final result
+    \begin{align*}
+        y(t)          & = - \sin t + t - H(t - \pi)(\sin t + t - \pi) + 2 \cos t + 3 \sin t \\
+                      & = t + 2 \cos t + 2 \sin t - H(t - \pi)(\sin t + t - \pi)            \\
+        \Aboxed{ y(t) & =
+        {
+        \begin{cases}
+            t + 2 \cos t + 2 \sin t, & \text{if}\ 0 < t < \pi \\
+            \pi + 2 \cos t + \sin t, & \text{if}\ t > \pi
+        \end{cases}
+        }
+        }
     \end{align*}
     % ----------------------------------------
-
-    \vspace{-4em}
 
     \item {}
     จงหาผลเฉลยของระบบสมการเชิงอนุพันธ์\\[.5em]
     \hspace*{.5cm}$
         \left\{\begin{aligned}
-            (D-1)x + y  & = 2 \sin t         \\
+            (D-1)x + y  & = 2 \sin t         \\[.2em]
             -x + (D+1)y & = 4\cos t - \sin t
         \end{aligned}\right.
     $ \quad เมื่อ $x(0) = 2, \quad y(0) = 5$ \qmark{8}
 
     % ----------------------------------------
+    \vspace*{-1em}
+    \begin{align*}
+        \intertext{Find determinant of differential operators}
+        P(D)   & =
+        \begin{vmatrix}
+            D - 1 & 1     \\
+            -1    & D + 1
+        \end{vmatrix} = D^2                                         \\
+        \intertext{Find $x(t)$}
+        P(D) x & =
+        \begin{vmatrix}
+            2 \sin t          & 1   \\
+            4 \cos t - \sin t & D+1
+        \end{vmatrix}                                     \\
+        D^2 x  & = (D+1) 2 \sin t - 4 \cos t + \sin t               \\
+        D^2 x  & = (3 \sin t - 2 \cos t)                            \\
+        x      & = c_1 + c_2 t + \frac{1}{D^2}(3 \sin t - 2 \cos t) \\
+        x      & = c_1 + c_2 t - 3 \sin t + 2 \cos t                \\
+        \intertext{Find $y(t)$}
+        P(D) y & =
+        \begin{vmatrix}
+            D - 1 & 2 \sin t          \\
+            -1    & 4 \cos t - \sin t
+        \end{vmatrix}                                   \\
+        D^2 y  & = (D-1)(4 \cos t - \sin t) + 2 \sin t              \\
+        D^2 y  & = - \sin t - 5 \cos t                              \\
+        y      & = c_3 + c_4 t + \frac{1}{D^2}(- \sin t - 5 \cos t) \\
+        y      & = c_3 + c_4 t + \sin t + 5 \cos t
+    \end{align*}
 
+    Substitute $x(t)$ and $y(t)$ into equation
+    \begin{align*}
+        (D-1) x + y     & = 2 \sin t \\
+        \begin{aligned}
+            (D-1) (c_1 + c_2 t - 3 \sin t + 2 \cos t) \hspace*{2.5em} \\
+            + c_3 + c_4 t + \sin t + 5 \cos t
+        \end{aligned}
+                        & = 2 \sin t \\
+        \begin{aligned}
+            c_2 - \cancel{3 \cos t} - 2 \sin t \hspace*{8.5em}             \\
+            - \,c_1 - c_2 t + 3 \sin t - \cancel{2 \cos t} \hspace*{2.5em} \\
+            + \,c_3 + c_4 t + \sin t + \cancel{5 \cos t}
+        \end{aligned}
+                        & = 2 \sin t \\
+        - c_2 +c_4      & = 0        \\
+        c_2 - c_1 + c_3 & = 0        \\
+    \end{align*}
+
+    \vspace{-1em}
+
+    Rewrite with 2 constants
+    \begin{align*}
+        x & = c_1 + c_2 t - 3 \sin t + 2 \cos t       \\
+        y & = (c_1 - c_2) + c_2 t + \sin t + 5 \cos t
+    \end{align*}
+
+    Check with initial conditions
+    \begin{center}
+        $x(0) = 2 \implies c_1 + 2 = 2 \implies c_1 = 0$ \\[.5em]
+        $y(0) = 5 \implies -c_2 + 5 = 5 \implies c_2 = 0$
+    \end{center}
+
+    The final results are
+    \medskip
+    \[
+        \boxed{
+            \begin{aligned}
+                x & = -3 \sin t + 2 \cos t \\
+                y & = \sin t + 5 \cos t
+            \end{aligned}
+        }
+    \]
     % ----------------------------------------
 
 \end{question}
@@ -367,6 +467,8 @@
         พร้อมทั้งอธิบายลักษณะของการเคลื่อนที่ของวัตถุ ณ ขณะนั้น \qmark{3.5}
 
         % ----------------------------------------
+        \phantom{}
+        \vspace*{-1em}
         \begin{align*}
             x(1)   & = \frac13 \sin\left(\pi - \frac\pi4\right)   \\
                    & = \boxed{\frac1{3\sqrt2}}                    \\
@@ -374,6 +476,7 @@
                    & = \boxed{\frac{\pi}{3\sqrt2}}                \\
             x''(1) & = \boxed{-\frac{\pi^2}{3\sqrt2}}
         \end{align*}
+
         The object is travelling in $+x$ direction and is getting accelerated into $-x$ direction.
         % ----------------------------------------
     \end{question}
